@@ -180,7 +180,11 @@ if selected:
             left_column, right_column = st.columns(2)
             with left_column:
                 st.subheader('📞 Telefon komórkowy:')
-                st.subheader('📧 Adres e-mail:')
             with right_column:
                 st.subheader('+48 XXX-XXX-XXX')
+        with st.container():
+            left_column, right_column = st.columns(2)
+            with left_column:
+                st.subheader('📧 Adres e-mail:')
+            with right_column:
                 st.subheader('szymon.piatek125@gmail.com')

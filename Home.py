@@ -1,8 +1,12 @@
 import streamlit as st
 from streamlit_option_menu import option_menu 
 from PIL import Image
+from pathlib import Path
 
 st.set_page_config(page_title = 'Szymon Piątek', page_icon = ':blush:', layout = 'centered')
+
+# --- PATH SETTINGS ---
+current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 
 # ---- LOAD ASSETS ----
 selfie = Image.open('images/szymon_piatek_selfie.jpg')

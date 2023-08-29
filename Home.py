@@ -55,7 +55,7 @@ if selected:
                 st.subheader('Nazywam się Szymon 😁')
                 st.subheader('##')
                 st.subheader('Mam 21 lat i uczę się programować. 🤓')
-                st.subheader('Języki programowania jakich się uczę to Python oraz R. 🧐')
+                st.subheader('Języki programowania jakich się uczę to Python, R oraz JavaScript. 🧐')
                 st.subheader('Znam też podstawy HTML, CSS oraz SQL. 😉')
                 st.subheader('Moim hobby jest muzyka oraz sport. ⚽')
             with right_column:

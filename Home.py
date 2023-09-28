@@ -1,23 +1,11 @@
 import streamlit as st
 from streamlit_option_menu import option_menu 
-from PIL import Image
 from pathlib import Path
 
-st.set_page_config(page_title = 'Szymon Piątek', page_icon = ':blush:', layout = 'centered')
+st.set_page_config(page_title = 'Szymon Piątek', page_icon = ':blush:', layout = 'wide')
 
 # --- PATH SETTINGS ---
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
-
-# ---- LOAD ASSETS ----
-selfie = Image.open('images/szymon_piatek_selfie.jpg')
-exchange_rate = Image.open('images/exchange-rate/exchange-rate.png')
-exchange_rate2 = Image.open('images/exchange-rate/exchange-rate2.png')
-pyassistant = Image.open('images/pyassistant/pyassistant.png')
-pyassistant2 = Image.open('images/pyassistant/pyassistant2.png')
-dice_roll_simulator = Image.open('images/dice-roll-simulator/dice-roll-simulator.png')
-dice_roll_simulator2 = Image.open('images/dice-roll-simulator/dice-roll-simulator2.png')
-dice_roll_simulator3 = Image.open('images/dice-roll-simulator/dice-roll-simulator3.png')
-dice_roll_simulator4 = Image.open('images/dice-roll-simulator/dice-roll-simulator4.png')
 
 # --- HIDE STREAMLIT STYLE ---
 hide_st_style = """
@@ -28,24 +16,40 @@ hide_st_style = """
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
+st.markdown(
+    """
+    <style>
+        body {
+            margin: 10;
+        }
+        .block-container {
+            margin: 0;
+            padding-top: 0;
+            min-height: 100vh;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-options = ['O mnie', 'Projekty', 'Kontakt']
-icons = ['house', 'book', 'envelope']
+options_menu = ['O mnie', 'Projekty', 'Kontakt']
+icons_menu = ['house', 'book', 'envelope']
 
 def st_nav_menu():
     selected = option_menu(
         menu_title = None,
-        options = options,
-        icons = icons,
+        options = options_menu,
+        icons = icons_menu,
         menu_icon = 'cast',
         default_index = 0,
         orientation = 'horizontal')
     return selected
 
-selected = st_nav_menu()
+selected_main = st_nav_menu()
 
-if selected:
-    if selected == options[0]:
+if selected_main:
+    if selected_main == options_menu[0]:
+
         # ---- HEADER SECTION ----
         with st.container():
             left_column, right_column = st.columns(2)
@@ -55,52 +59,119 @@ if selected:
                 st.subheader('Nazywam się Szymon 😁')
                 st.subheader('##')
                 st.subheader('Mam 21 lat i uczę się programować. 🤓')
-                st.subheader('Języki programowania jakich się uczę to Python, R oraz JavaScript. 🧐')
-                st.subheader('Znam też podstawy HTML, CSS oraz SQL. 😉')
+                st.subheader('Moim głównym językiem programowania jest Python. 🧐')
+                st.subheader('Znam też podstawy HTML, CSS, SQL, JavaScript, R oraz C++. 😉')
                 st.subheader('Moim hobby jest muzyka oraz sport. ⚽')
             with right_column:
-                st.image(selfie)
-        
-        '---'
-        # ---- WHAT I DO ----
-        st.title('Czym się zajmuję')
-        st.subheader('##')
-        st.subheader('Na codzień zajmuję się pracą, ale w wolnym czasie skupiam się na programowaniu.')
-        st.subheader('Python jest językiem, który wybrałem na samym początku mojej przygody z programowniem.')
-        st.subheader('Lubię też uczyć się nowych rzeczy. Dlatego poznałem czym jest projektowanie stron internetowych z użyciem HTML i CSS oraz jak wykonywać podstawowe polecenia w bazach danych SQL.')
-
-        '---'
-        # ---- HOBBY ----
-        st.title('Hobby')
-        st.subheader('##')
-        st.subheader('Jak już wspomniałem ... moim hobby jest muzyka i sport')
-        st.subheader('Ponad 12 lat gram na pianinie. 🎹')
-        st.subheader('Tworzę muzykę "for fun". 🎶')
-        st.subheader('[Czasami coś wrzucam na SoundCloud ☁](https://soundcloud.com/shmn1)')
-        st.subheader('W weekendy gram ze znajomymi w piłkę nożną. ⚽')
-        st.subheader('Od pewnego czasu uczestniczę też w zmaganiach drużyny w lidzę amatorskiej organizowanej na terenie Warszawy.')
-
-    elif selected == options[1]:
-        st.title('Projekty')
-
-        with st.container():
-            left_column, right_column = st.columns(2)
-            with left_column:
-                st.subheader('Exchange rate')
+                # ---- WHAT I DO ----
+                st.title('Czym się zajmuję')
                 st.subheader('##')
-                st.write('Jest to prosty program, który pobiera kursy walut (EUR i USD) ze strony internetowej. 💶💹')
-                st.write('Dzięki temu programowi można przeliczyć daną wartość po danym kursie waluty z wybranego dnia na PLN. 💰')
-                st.write('[Kurs jest podawany do 4 miejsca po przecinku]*')
-            with right_column:
-                st.image(exchange_rate2)
-        
+                st.subheader('Na codzień zajmuję się pracą, ale w wolnym czasie skupiam się na programowaniu.')
+                st.subheader('Python jest językiem programowania, którego używam na co dzień, ale lubię też uczyć się nowych rzeczy.')
+                st.subheader('Dlatego poznałem czym jest projektowanie stron internetowych z użyciem HTML i CSS, jak wykonywać podstawowe polecenia w bazach danych SQL oraz jak przeprowadzać analizy i tworzyć różnego rodzaju wykresy za pomocą języka R i programu R Studio.')
+        '---'
+
+        # ---- SKILLS ----
         with st.container():
+            st.title('Umięjętnośći')
+            st.subheader('##')
             left_column, right_column = st.columns(2)
             with left_column:
-                st.image(exchange_rate)
+                st.subheader('Języki programowania:')
+                left, right = st.columns(2)
+                with left:
+                    st.subheader('⭐⭐⭐Python')
+                    st.subheader('⭐R')
+                    st.subheader('⭐C++')
+                with right:
+                    st.subheader('⭐HTML')
+                    st.subheader('⭐CSS')
+                    st.subheader('⭐JavaScript')
             with right_column:
-                st.subheader('''W projekcie wykoszystałem takie biblioteki jak:
-                             - customtkinter
+                st.subheader('Programy:')
+                left, right = st.columns(2)
+                with left:
+                    st.subheader('◽ Visual Studio Code')
+                    st.subheader('◽ R Studio')
+                    st.subheader('◽ GitHub Desktop')
+                    st.subheader('◽ Anaconda')
+                with right:
+                    st.subheader('◽ Jupyter Notebook')
+                    st.subheader('◽ Microsoft Office')
+                    st.subheader('◽ AutoCAD / GstarCAD')
+                    st.subheader('◽ FL Studio')
+        '---'
+
+        # ---- HOBBY ----
+        with st.container():
+            st.title('Hobby')
+            st.subheader('##')
+            left_column, right_column = st.columns(2)
+            with left_column:
+                st.subheader('Jak już wspomniałem ... moim hobby jest muzyka i sport')
+                st.subheader('Ponad 12 lat gram na pianinie. 🎹')
+                st.subheader('Tworzę muzykę "for fun". 🎶')
+                st.subheader('[Czasami coś wrzucam na SoundCloud ☁](https://soundcloud.com/shmn1)')
+            with right_column:
+                st.subheader('W weekendy gram ze znajomymi w piłkę nożną. ⚽')
+                st.subheader('Od pewnego czasu uczestniczę też w zmaganiach drużyny') 
+                st.subheader('w lidzę amatorskiej organizowanej na terenie Warszawy. 🧜‍♀️')
+                st.subheader('[Liga fanów 🏟](https://ligafanow.pl/statystyki/pilkarz/8939/)')
+
+        st.subheader('##')
+        st.subheader('##')
+        st.subheader('##')
+
+    elif selected_main == options_menu[1]:
+        options_projects = ['Exchange rate v2', 'Exchange rate v1', 'PyAssistant', 'Dice roll simulator']
+        amount_projects = len(options_projects)
+
+        left_column, right_column = st.columns((1,2))
+        with left_column:
+            selected_project = st.selectbox(f'Wybierz projekt: ({amount_projects})', options_projects)
+                
+        if selected_project == options_projects[options_projects.index('Exchange rate v2')]:
+
+            # ---- EXCHANGE-RATE-V2 ----
+            with st.container():
+                st.title('Exchange rate v2')
+                st.subheader('##')
+                left, right = st.columns(2)
+                with left:
+                    st.write("Jest to strona internetowa stworzona za pomocą python'a i biblioteki streamlit. 🐍")
+                    st.write('Na tej stronie możesz przeliczyć daną wartość danej waluty z wybranego dnia na PLN. 💰')
+                    st.write('Możesz też wybrać opcję wygenerowania wykresu z 7/14/21/28 dni wstecz')
+                    st.write('Kurs jest podawany do 4 miejsca po przecinku, a wynik może być podany do 4 lub 2 miejsca po przecinku. 💶')
+                    st.write('Na stronie jest możliwość zalogowania się za pomocą konta google oraz opcja subskrypcji (włączony tryb testowy). 👍')
+                    st.subheader('##')
+                    st.subheader('''W projekcie wykorzystałem takie biblioteki jak:
+                                - streamlit
+    - st_paywall
+    - bs4 (BeautifulSoup)
+    - pandas 
+    - lxml
+    - requests 
+    - datetime
+    - os
+    - plotly''')
+                    st.subheader('[Zobacz projekt na GitHub](https://github.com/SzymonPiatek/Exchange-rate)')
+                with right:
+                    st.write('Video in preparation...')
+
+        elif selected_project == options_projects[options_projects.index('Exchange rate v1')]:
+
+            # ---- EXCHANGE-RATE-V1 ----
+            with st.container():
+                st.title('Exchange rate v1')
+                st.subheader('##')
+                left, right = st.columns(2)
+                with left:
+                    st.write('Jest to prosty program, który pobiera kursy walut (EUR i USD) ze strony internetowej. 💹')
+                    st.write('Dzięki temu programowi można przeliczyć daną wartość po danym kursie waluty z wybranego dnia na PLN. 💰')
+                    st.write('Kurs jest podawany do 4 miejsca po przecinku. 💶')
+                    st.subheader('##')
+                    st.subheader('''W projekcie wykorzystałem takie biblioteki jak:
+                                - customtkinter
     - tkinter
     - bs4 (BeautifulSoup)
     - pandas 
@@ -108,29 +179,25 @@ if selected:
     - Datetime
     - os
     - python-dotenv''')
+                    st.subheader('[Zobacz projekt na GitHub](https://github.com/SzymonPiatek/ExchangeRate-Streamlit)')
+                with right:
+                    st.write('Video in preparation...')
 
-        '---'
-        
-        with st.container():
-            left_column, right_column = st.columns(2)
-            with left_column:
-                st.subheader('PyAssistant')
+        elif selected_project == options_projects[options_projects.index('PyAssistant')]: 
+
+            # ---- PYASSISTANT ----
+            with st.container():
+                st.title('PyAssistant')
                 st.subheader('##')
-                st.write('PyAssistant to asystent głosowy. 🤖')
-                st.write('Potrafi on między innymi:')
-                st.write('- włączyć film/muzykę na Youtube 🎶')
-                st.write('- otworzyć Facebook lub Messenger 💬')
-                st.write('- wyszukiwać zapytania w Google 👀')
-            with right_column:
-                st.image(pyassistant2)
-        
-        with st.container():
-            left_column, right_column = st.columns(2)
-            with left_column:
-                st.image(pyassistant)
-            with right_column:
-                st.subheader('''W projekcie wykorzystałem takie biblioteki jak:
-                             - customtkinter
+                left, right = st.columns(2)
+                with left:
+                    st.write('PyAssistant to asystent głosowy. 🤖')
+                    st.write('Potrafi on między innymi:')
+                    st.write('- włączyć film/muzykę na Youtube 🎶')
+                    st.write('- otworzyć Facebook lub Messenger 💬')
+                    st.write('- wyszukiwać zapytania w Google 👀')
+                    st.subheader('''W projekcie wykorzystałem takie biblioteki jak:
+                                - customtkinter
     - tkinter
     - sys
     - speech_recognition
@@ -138,42 +205,32 @@ if selected:
     - pyttsx3
     - webbrowser
     - pywhatkit''')
-                
-        '---'
+                    st.subheader('[Zobacz projekt na GitHub](https://github.com/SzymonPiatek/PyAssistant)')
+                with right:
+                    st.write('Video in preparation...')
 
-        with st.container():
-            left_column, right_column = st.columns(2)
-            with left_column:
-                st.subheader('Dice roll simulator')
-                st.write('Jest to prosta gra, która polega na rzucaniu kostką. 🎲')
-                st.write('Gra się kończy, gdy zostanie zabrane 20 punktów życia ❤')
-                st.write('lub gdy 10 razy wyrzuci się większą wartość od przeciwnika. 🤼')
-                st.write('Zadawane obrażenia to różnica oczek wyrzuconych przez graczy. 💢')
-            with right_column:
-                st.image(dice_roll_simulator)
-        
-        with st.container():
-            left_column, right_column = st.columns(2)
-            with left_column:
-                st.image(dice_roll_simulator4)
-            with right_column:
-                st.image(dice_roll_simulator2)
+        elif selected_project == options_projects[options_projects.index('Dice roll simulator')]: 
 
-        with st.container():
-            left_column, right_column = st.columns(2)
-            with left_column:
-                st.image(dice_roll_simulator3)
-            with right_column:
-                st.subheader('''W projekcie wykorzystałem takie biblioteki jak:
-                             - customtkinter
+            # ---- DICE-ROLL-SIMULATOR
+            with st.container():
+                st.title('Dice roll simulator')
+                st.subheader('##')
+                left, right = st.columns(2)
+                with left:
+                    st.write('Jest to prosta gra, która polega na rzucaniu kostką. 🎲')
+                    st.write('Gra się kończy, gdy zostanie zabrane 20 punktów życia ❤')
+                    st.write('lub gdy 10 razy wyrzuci się większą wartość od przeciwnika. 🤼')
+                    st.write('Zadawane obrażenia to różnica oczek wyrzuconych przez graczy. 💢')
+                    st.subheader('''W projekcie wykorzystałem takie biblioteki jak:
+                                    - customtkinter
     - tkinter
     - Pillow
     - random''')
+                    st.subheader('[Zobacz projekt na GitHub](https://github.com/SzymonPiatek/Dice-roll-simulator)')
+                with right:
+                    st.write('Video in preparation...')
 
-
-
-
-    elif selected == options[2]:
+    elif selected_main == options_menu[2]:
         st.title('Kontakt')
         st.title('##')
         with st.container():

@@ -7,18 +7,13 @@ st.set_page_config(page_title = 'Szymon Piątek', page_icon = ':blush:', layout 
 # --- PATH SETTINGS ---
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 
-# --- HIDE STREAMLIT STYLE ---
-hide_st_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
-            </style>
-            """
-st.markdown(hide_st_style, unsafe_allow_html=True)
-st.markdown(
-    """
+st.markdown("""
     <style>
+        ::-webkit-scrollbar {width: 0px;}
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        body {overflow: hidden;}
         .stApp {
             max-width: 160vh;
             display: inline-block;
@@ -30,9 +25,7 @@ st.markdown(
             padding-top: 0;
         }
     </style>
-    """,
-    unsafe_allow_html=True
-)
+    """, unsafe_allow_html=True)
 
 options_menu = ['O mnie', 'Projekty', 'Kontakt']
 icons_menu = ['house', 'book', 'envelope']

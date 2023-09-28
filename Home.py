@@ -19,13 +19,15 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 st.markdown(
     """
     <style>
-        body {
-            margin: 10;
+        .stApp {
+            max-width: 160vh;
+            display: inline-block;
+            vertical-align: middle;
+            margin: auto;
         }
         .block-container {
             margin: 0;
             padding-top: 0;
-            min-height: 100vh;
         }
     </style>
     """,

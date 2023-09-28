@@ -120,10 +120,6 @@ if selected_main:
                 st.subheader('w lidzę amatorskiej organizowanej na terenie Warszawy. 🧜‍♀️')
                 st.subheader('[Liga fanów 🏟](https://ligafanow.pl/statystyki/pilkarz/8939/)')
 
-        st.subheader('##')
-        st.subheader('##')
-        st.subheader('##')
-
     elif selected_main == options_menu[1]:
         options_projects = ['Exchange rate v2', 'Exchange rate v1', 'PyAssistant', 'Dice roll simulator']
         amount_projects = len(options_projects)

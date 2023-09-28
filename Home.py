@@ -116,8 +116,7 @@ if selected_main:
                 st.subheader('[Czasami coś wrzucam na SoundCloud ☁](https://soundcloud.com/shmn1)')
             with right_column:
                 st.subheader('W weekendy gram ze znajomymi w piłkę nożną. ⚽')
-                st.subheader('Od pewnego czasu uczestniczę też w zmaganiach drużyny') 
-                st.subheader('w lidzę amatorskiej organizowanej na terenie Warszawy. 🧜‍♀️')
+                st.subheader('Od pewnego czasu uczestniczę też w zmaganiach drużyny w lidzę amatorskiej organizowanej na terenie Warszawy. 🧜‍♀️') 
                 st.subheader('[Liga fanów 🏟](https://ligafanow.pl/statystyki/pilkarz/8939/)')
 
     elif selected_main == options_menu[1]:

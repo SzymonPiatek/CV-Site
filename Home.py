@@ -231,17 +231,48 @@ if selected_main:
                     st.write('Video in preparation...')
 
     elif selected_main == options_menu[2]:
+
+        # ---- CONTACT ----
         st.title('Kontakt')
         st.title('##')
         with st.container():
-            left_column, right_column = st.columns(2)
+            left_column, right_column = st.columns((3, 5))
             with left_column:
                 st.subheader('📞 Telefon komórkowy:')
             with right_column:
                 st.subheader('+48 XXX-XXX-XXX')
-        with st.container():
-            left_column, right_column = st.columns(2)
+
+            left_column, right_column = st.columns((3, 5))
             with left_column:
                 st.subheader('📧 Adres e-mail:')
             with right_column:
                 st.subheader('szymon.piatek125@gmail.com')
+        st.title('##')
+
+        # ---- EXTERNAL-LINKS ----
+        st.title('Linki zewnętrzne')
+        st.title('##')
+        with st.container():
+            left_column, right_column = st.columns((3, 5))
+            with left_column:
+                st.subheader('💻 GitHub:')
+            with right_column:
+                st.subheader('https://github.com/SzymonPiatek')
+
+            left_column, right_column = st.columns((3, 5))
+            with left_column:
+                st.subheader('💼 LinkedIn:')
+            with right_column:
+                st.subheader('https://www.linkedin.com/in/szymon-pi%C4%85tek-19347024a')
+
+            left_column, right_column = st.columns((3, 5))
+            with left_column:
+                st.subheader('💸 Exchange rate:')
+            with right_column:
+                st.subheader('https://exchange-rate.streamlit.app')
+
+            left_column, right_column = st.columns((3, 5))
+            with left_column:
+                st.subheader('🎶 Soundcloud:')
+            with right_column:
+                st.subheader('https://soundcloud.com/shmn1')
